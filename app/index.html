@@ -7,9 +7,29 @@
     <link rel="stylesheet" href="css/app.css">
   </head>
   <body>
-
-    <h1>Hello World!</h1>
-
+    <div class="container main-content">
+      <div class="row">
+          <div class="col-md-6 col-md-offset-3">
+            <div class="input-group-lg search-input-group">
+              <input type="text" class="form-control zip-search-form" placeholder="Search for beer near you...">
+              <div class="">
+              <button class="btn btn-lg btn-primary search-button" type="button">Get Your Beer!</button>
+              </div>
+            </div><!-- /input-group -->
+      </div>
+      <div class="row"></div>
+            <div class="search-results-container">
+              <ul class="list-group list-inline">
+                <li class="list-group-item">
+                  <img src="https://s3.amazonaws.com/brewerydbapi/beer/MWEIa7/upload_C3Ifv2-medium.png" alt="">
+                  <h3>Flagship India Pale Ale</h3>
+                  <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Magnam, laboriosam, ex! Eaque minima esse, ea eveniet magnam incidunt odit tempora adipisci eligendi fuga recusandae blanditiis non libero nostrum quam inventore.</p>
+                </li>
+              </ul>
+            </div>
+          </div><!-- /.col-lg-6 -->
+      </div>
+    </div>
     <script src="js/bundle.js"></script>
   </body>
 </html>
