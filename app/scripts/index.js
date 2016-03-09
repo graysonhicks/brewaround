@@ -22,32 +22,29 @@ console.log(BeerModel);
 // });
 
 
-
-$('.search-button').on('click', function(){
-    var userZip = $('.zip-search-form').val();
-    $('.search-button').html('Searching! <i class="fa fa-cog fa-spin"></i>');
-    zipSearch.fetch({
-      data: {
-        postalcode: userZip
-      }
-    }).done(function(data){
-      var lat = data.postalCodes[0].lat;
+$('.search-button').on('click', function(){ // on click of search
+    var location = $('.zip-search-form').val(); //get search term and save
+    $('.search-button').html('Searching! <i class="fa fa-cog fa-spin"></i>'); // change to searching icon
+    zipSearch.fetch({data:{
+      postalcode: location
+    }}).done(function(data){ // when done, grab data
+      var lat = data.postalCodes[0].lat; // pull lat and long out of its first result
       var lng = data.postalCodes[0].lng;
-      getBeer(lat, lng);
-    });
+      getBeer(lat, lng); // now run getBeer, passing it lat and lng
+  });
 });
 
 function getBeer(lat, lng){
-  beerSearch.fetch({
+  beerSearch.fetch({ //call api with node server, passing it lat and lng as queries
         data: {
           lat: lat,
           lng: lng
         },
-        success:function(body){
-        var breweries = body.toJSON();
+        success:function(body){ //when done grab the body data that the node server returned
+        var breweries = body.toJSON(); //parse to JSON and store
         console.log(breweries);
-        doTemplate('.main-content', '#results-template', breweries);
-        viewUpdates();
+        doTemplate('.main-content', '#results-template', breweries);//pass brewery info in to template
+        viewUpdates(); //update styling and CSS classes
           }
         });
       }
@@ -57,8 +54,7 @@ function doTemplate(target, source, context){ // homemade handlebars process fun
   var template = handlebars.compile(sourceTemplate);
   $(target).html(template(context));
   $(document).ready(function(){
-    console.log('dot');
-   $(".description-wrapper").dotdotdot({
+   $(".description-wrapper").dotdotdot({ //dotdotdot plugin to limit the length of brewery descriptions
      height: 100,
      after: "a.readmore"
    });
@@ -66,12 +62,12 @@ function doTemplate(target, source, context){ // homemade handlebars process fun
 }
 
 function viewUpdates(){
-    $('.search-button').html('Search again!');
-    $('.zip-search-form').val("");
-    $('.main-content').addClass('raised-main-content');
-    $('.welcome-col-container').removeClass('col-md-6 col-md-offset-3');
+    $('.search-button').html('Search again!'); // update search button
+    $('.zip-search-form').val(""); //clear search term
+    $('.main-content').addClass('raised-main-content'); //shrink padding on top
+    $('.welcome-col-container').removeClass('col-md-6 col-md-offset-3'); // change width of container
     $('.welcome-col-container').addClass('col-md-12');
-    $('.welcome-panel-heading').addClass('welcome-panel-heading-searched');
+    $('.welcome-panel-heading').addClass('welcome-panel-heading-searched'); // force search group inline
     $('.welcome-panel-heading').append('<i class="fa fa-beer beer-logo-searched"></i>');
     $('.search-input-group').addClass('search-input-group-searched');
     $('.search-button-container').addClass('search-button-container-searched');
