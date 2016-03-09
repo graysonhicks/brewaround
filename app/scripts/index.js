@@ -22,7 +22,7 @@ console.log(BeerModel);
 // });
 
 
-$('.search-button').on('click', function(){ // on click of search
+$('.main-content').on('click', '.search-button', function(){ // on click of search
     var location = $('.zip-search-form').val(); //get search term and save
     $('.search-button').html('Searching! <i class="fa fa-cog fa-spin"></i>'); // change to searching icon
     zipSearch.fetch({data:{
