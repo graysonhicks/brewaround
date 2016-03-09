@@ -16,7 +16,7 @@ app.get('/api', function(req, res){ // listens for request on /api route
    });
 });
 
-app.listen(3000);
+app.set('port', (process.env.PORT || 3000));
 console.log('Server running on port %d', 3000);
 
 
