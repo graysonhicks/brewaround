@@ -9,7 +9,7 @@ var BeerModel = Backbone.Model.extend({
 var BeerCollection = Backbone.Collection.extend({
   model: BeerModel,
   url: function(){
-    return 'http://localhost:3000/api'; // set this as api url so that node server can listen here
+    return 'http://localhost:' + process.env.PORT + '/api'; // set this as api url so that node server can listen here
   },
   parse: function(data){ // parse data on return
     return data.data;
