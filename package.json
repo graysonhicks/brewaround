@@ -33,7 +33,7 @@
     "onchange": "^2.0.0",
     "jquery": "^2.2.0",
     "underscore": "^1.8.3",
-    "handlebars": "^4.0.0",
+    "handlebars": "^4.0.0"
   },
   "scripts": {
     "html": "cp app/*.html dist/",
