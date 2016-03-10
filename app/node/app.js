@@ -16,8 +16,9 @@ app.get('/api', function(req, res){ // listens for request on /api route
    });
 });
 
-app.set('port', (process.env.PORT || 3000));
-console.log('Server running on port %d', 3000);
+var port = process.env.PORT || 3000;
+app.listen(port);
+console.log('Server running on port %d');
 
 
 // 'https://api.brewerydb.com/v2/search/geo/point?lat=' + lat + '&lng=' + lng + '&type=beer&hasLabel=Y&key=72a751214ab8b53056ac0a6d8376dc2d'
