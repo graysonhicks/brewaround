@@ -12,6 +12,7 @@ app.get('/api', function(req, res){ // listens for request on /api route
   request('https://api.brewerydb.com/v2/search/geo/point?lat=' + lat + '&lng=' + lng + '&type=beer&hasImages=Y&key=72a751214ab8b53056ac0a6d8376dc2d', function (error, response, body) { // api url
     if (!error && response.statusCode === 200) {
       console.log('beer');
+      console.log(body);
       res.send(body); // if no errors, send the body of data back to front end
     }
    });
