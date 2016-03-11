@@ -5851,6 +5851,19 @@ body {
 .list-group-item:first-child {
   border-radius: 10px; }
 
+.brewery-link-container {
+  text-decoration: none;
+  color: #333333; }
+  .brewery-link-container:hover {
+    text-decoration: none;
+    color: #333333; }
+
+.brewery-description {
+  text-align: left; }
+
+.description-wrapper {
+  margin-bottom: 45px; }
+
 .brewery-list-items {
   display: inline-block;
   width: 30%;

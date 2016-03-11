@@ -1,8 +1,0 @@
-{
-  "name": "Brewaround",
-  "description": "Brewery Search with Node/Express, Backbone, and BreweryDB",
-  "repository": "https://github.com/graysonhicks/tiy-6.2-loading-button/tree/gh-pages",
-  "logo": "http://node-js-sample.herokuapp.com/node.svg",
-  "keywords": ["node", "express", "static"],
-  "image": "heroku/nodejs"
-}

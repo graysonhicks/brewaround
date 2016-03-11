@@ -52,6 +52,7 @@
             <div class="col-md-12 search-results-container">
             {{#each []}}
               <div class="brewery-list-items">
+                <a class="brewery-link-container" href="{{this.website}}">
                 {{#if this.brewery.images.large}}
                   <img src="{{this.brewery.images.large}}" alt="">
                   {{else}}
@@ -63,9 +64,14 @@
                 <h3>{{this.brewery.name}}</h3>
                 <h5>{{this.locality}}, {{this.region}}</h5>
                 <div class="description-wrapper">
+                  {{#if this.brewery.description}}
                   <p class="brewery-description">{{this.brewery.description}}</p>
+                  {{else}}
+                  <p class="brewery-description">Sorry! No description was found for this brewery, try checking out their website below.  If you are this brewery, login to add a description. Thanks!</p>
+                  {{/if}}
                 </div>
                 <a href="{{this.website}}">{{this.brewery.name}} Site</a>
+                </a>
               </div>
             {{/each}}
               </div>
