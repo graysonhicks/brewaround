@@ -8,7 +8,7 @@ var ZipCodeModel = Backbone.Model.extend({
 
 var ZipCodesCollection = Backbone.Collection.extend({
   model: ZipCodeModel,
-  url: 'https://api.geonames.org/findNearbyPostalCodesJSON?country=USA&username=graysonhicks&maxRows=1',
+  url: 'https://secure.geonames.org/findNearbyPostalCodesJSON?country=USA&username=graysonhicks&maxRows=1',
   parse: function(data){
     return data["postalCodes"];
    }
